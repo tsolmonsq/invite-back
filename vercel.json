@@ -1,10 +1,15 @@
 {
-    "builds": [
-      {
-        "src": "dist/**/*",
-        "use": "@vercel/node"
-      }
-    ],
-    "outputDirectory": "dist" 
-  }
-  
+  "version": 1,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api"
+    }
+  ]
+}
