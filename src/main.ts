@@ -16,7 +16,10 @@ async function bootstrap() {
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('swagger', app, document); 
+  
+  if (process.env.NODE_ENV !== 'production') {
+    SwaggerModule.setup('swagger', app, document);
+  }
 
   await app.listen(3000);
 }
